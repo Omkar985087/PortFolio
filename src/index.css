@@ -1,0 +1,330 @@
+/* ── Google Fonts ── */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@import "tailwindcss";
+
+/* ── Theme tokens ── */
+@theme {
+  --color-cream: #F3EEE3;
+  --color-cream-dark: #E8E0D0;
+  --color-cream-light: #F8F5EE;
+  --color-ink: #171412;
+  --color-ink-light: #2D2926;
+  --color-ink-muted: #5C564E;
+  --color-burnt: #D9541E;
+  --color-burnt-dark: #B8441A;
+  --color-burnt-light: #E6784A;
+  --color-warm-100: #F8F5EE;
+  --color-warm-200: #F3EEE3;
+  --color-warm-300: #E8E0D0;
+  --color-warm-400: #D4CABC;
+  --color-warm-500: #B5AA99;
+  --color-warm-600: #8A7F72;
+  --color-warm-700: #5C564E;
+  --color-warm-800: #2D2926;
+  --color-warm-900: #171412;
+
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+/* ── Global Box Sizing & Root Layout ── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  background-color: #F3EEE3;
+  color: #171412;
+  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* ── Standard Centered Global Container ── */
+.site-container {
+  width: min(100% - 32px, 1440px);
+  margin-inline: auto;
+  box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  .site-container {
+    width: min(100% - 64px, 1440px);
+  }
+}
+
+/* ── Overflow & Text Wrapping Safety ── */
+.card,
+.card-content,
+.grid-item,
+.flex-item {
+  min-width: 0;
+  max-width: 100%;
+}
+
+p, h1, h2, h3, h4, span, a, li {
+  overflow-wrap: anywhere;
+  max-width: 100%;
+}
+
+/* ── Contact Section Specific Layout ── */
+.contact-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 120px 24px;
+}
+
+.contact-inner {
+  width: 100%;
+  max-width: 1000px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.contact-heading {
+  max-width: 900px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.contact-description {
+  max-width: 650px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.contact-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+/* ── Selection ── */
+::selection {
+  background-color: #D9541E;
+  color: #F3EEE3;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F3EEE3;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D4CABC;
+  border-radius: 100px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #B5AA99;
+}
+
+/* ── Typography utility classes ── */
+.font-display-xl {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(3.5rem, 8vw, 9rem);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  font-weight: 400;
+}
+
+.font-display {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(2.5rem, 6vw, 6rem);
+  line-height: 1.0;
+  letter-spacing: -0.02em;
+  font-weight: 400;
+}
+
+.font-heading-xl {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  font-weight: 400;
+}
+
+.font-heading {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  font-weight: 400;
+}
+
+.font-overline {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  line-height: 1.5;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.font-caption {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  letter-spacing: 0.05em;
+}
+
+/* ── Editorial components ── */
+.editorial-container {
+  width: 100%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(1.5rem, 4vw, 4rem);
+  padding-right: clamp(1.5rem, 4vw, 4rem);
+}
+
+.editorial-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, #D4CABC, transparent);
+}
+
+.editorial-card {
+  background: #F8F5EE;
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 40px rgba(23, 20, 18, 0.06);
+  transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.editorial-card:hover {
+  box-shadow: 0 8px 60px rgba(23, 20, 18, 0.1);
+  transform: translateY(-4px);
+}
+
+/* ── Magnetic button effect ── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  background: #171412;
+  color: #F3EEE3;
+  border-radius: 100px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  cursor: pointer;
+  border: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #D9541E;
+  transform: translateX(-101%);
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  border-radius: inherit;
+}
+
+.btn-primary:hover::before {
+  transform: translateX(0);
+}
+
+.btn-primary span,
+.btn-primary svg {
+  position: relative;
+  z-index: 1;
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  background: transparent;
+  color: #171412;
+  border: 1.5px solid #D4CABC;
+  border-radius: 100px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  border-color: #171412;
+  background: #171412;
+  color: #F3EEE3;
+}
+
+/* ── Section spacing ── */
+.section-padding {
+  padding-top: clamp(6rem, 12vw, 12rem);
+  padding-bottom: clamp(6rem, 12vw, 12rem);
+}
+
+.section-padding-sm {
+  padding-top: clamp(4rem, 8vw, 8rem);
+  padding-bottom: clamp(4rem, 8vw, 8rem);
+}
+
+/* ── Lenis overrides ── */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* ── Cursor ── */
+@media (hover: hover) {
+  a, button, [role="button"] {
+    cursor: pointer;
+  }
+}
